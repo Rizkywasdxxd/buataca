@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>semangat acaaa</title>
+</head>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: #2C3333;
+  }
+  .wrap{
+    text-align: center;
+    padding:20px 0 0 ;
+  }
+  h1{
+    font-size: 15px;
+    margin-bottom: 15px;
+  }
+  #clock span{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    background-color: #2B2B2B;
+    box-shadow: 0 5px 15px gray;
+    color: #fff;
+    margin: 0 15px;
+  }
+  #clock span:first-child{
+    margin-left: 0;
+  }
+  #clock span:last-child{
+background-color: #171010;
+ }
+ #greeting{
+  color:#F3EFE0 ;
+  background-color: #423F3E;
+  display: inline-block;
+  border-radius: 4px;
+  font-size: 30px;
+  padding: 20px 50px;
+  margin-bottom: 30px;
+  box-shadow: 0 5px 15px gray;
+  animation: ease infinite 1s;
+  border-color: #d4d2d5;
+ }
+ #ucapan{
+  color:#F3EFE0 ;
+  background-color: #423F3E;
+  display: inline-block;
+  border-radius: 4px;
+  font-size: 30px;
+  padding: 20px;  
+  margin-top: 30px;
+  box-shadow: 0px 5px 15px  gray;
+  animation: ease infinite 1s;
+  border-color: #d4d2d5;
+  position: justify-content-center;
+
+ }
+</style>
+<div class="wrap">
+  <h1 id="greeting"></h1>
+  <h1 id="clock"></h1>
+  <h1 id="ucapan"></h1>
+</div>
+<script>
+  function clock() {
+    var date = new Date();
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var seconds = date.getSeconds();
+    var midday;
+
+    hours = updateTime(hours);
+    minutes = updateTime(minutes);
+    seconds = updateTime(seconds);
+    var name ="kaks acaa";
+
+    midday = (hours >= 12) ? "PM" : "AM";
+
+    document.getElementById("clock").innerHTML = "<span>" + hours + "</span>" + ":" + "<span>" + minutes + "</span>" + ":" + "<span>" + seconds + "</span>" + "<span>" + midday + "</span>";
+
+    var time = setTimeout(function(){
+      clock();
+    },1000);
+
+    if(hours >= 4 && hours <= 6){
+      var greeting = "guten morgen " + name +" have a great day ya!!!";
+      var ucapan = "jangan lupa sarapan!!";
+    }
+    if(hours >= 7 && hours <= 14){
+      var greeting = "guten tag!";
+      var ucapan = "Semangat jalanin aktivitasnya!! " + name ;
+
+    }
+    if(hours >= 14 && hours <= 18){
+      var greeting = "selamat soree " + name ;
+      var ucapan = "aku tau kamu ngantuk atau capek tapi harus tetep semangat,fightt " ;
+    }
+    if(hours >= 18 && hours <= 22){
+      var greeting = "selamat istirahattt " + name +"!";
+      var ucapan = "istirahat yaa,jangan lupa makannn!!";
+    }
+    if(hours >= 22 && hours <= 24){
+      var greeting = "tidurrr " + name +" ishhh";
+      var ucapan = "jangan bergadangggg,u need a lot of restt :(";
+    }
+    if(hours >= 24 && hours <= 4){
+      var greeting = "kenapaaa bergadangg";
+      var ucapan = name +" next time jangan bergadang yaa!";
+    }
+    document.getElementById("greeting").innerHTML= greeting;
+    document.getElementById("ucapan").innerHTML= ucapan;
+
+  }
+  function updateTime(k){
+    if(k < 10){
+      return "0" + k
+    }else{
+      return k;
+    }
+  }
+clock();
+</script>
+<div style="left: 0; width: 100%; height: 380px; position: relative;"><iframe src="https://open.spotify.com/embed/playlist/7alNDto4CIneB7AFmHVBqu?si=g0jWbUpoTamInN-Dlr-Q2g&utm_source=oembed" style="top: 0; left: 0; width: 100%; height: 115%; position: absolute; border: 0;" allowfullscreen allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture; background-color:#879fab"></iframe></div>
+
+</html>
